@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cinefolk.Components;
 using Cinefolk.Components.Movie;
 
 namespace Cinefolk
@@ -46,9 +47,7 @@ namespace Cinefolk
 
         private void exportIconBtn_Click(object sender, EventArgs e)
         {
-            Form Form2 = new Form();
-            Form2.TopMost = true;
-            Form2.StartPosition = FormStartPosition.CenterParent;
+            ExportForm Form2 = new ExportForm();
             Form2.ShowDialog();
             
         }

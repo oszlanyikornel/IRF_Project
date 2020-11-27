@@ -58,6 +58,12 @@
     <Compile Include="Components\Common\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Movie\MovieUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Movie\MovieUserControl.resx">
       <DependentUpon>MovieUserControl.cs</DependentUpon>
     </EmbeddedResource>
