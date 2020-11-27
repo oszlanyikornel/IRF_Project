@@ -15,6 +15,8 @@ namespace Cinefolk.Components.Movie
         public MovieUserControl()
         {
             InitializeComponent();
+            // TODO set the input data to controls
+            // TODO image fallback
         }
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]

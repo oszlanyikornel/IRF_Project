@@ -167,6 +167,7 @@
             this.Controls.Add(this.directorTitleLabel);
             this.Controls.Add(this.plotLabel);
             this.Controls.Add(this.titleLabel);
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.Name = "MovieUserControl";
             this.Size = new System.Drawing.Size(696, 180);
             ((System.ComponentModel.ISupportInitialize)(this.posterPictureBox)).EndInit();
