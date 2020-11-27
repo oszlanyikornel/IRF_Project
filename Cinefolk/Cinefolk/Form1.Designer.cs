@@ -38,6 +38,10 @@
             this.iconButton2 = new Cinefolk.Components.Common.IconButton();
             this.iconButton4 = new Cinefolk.Components.Common.IconButton();
             this.iconButton5 = new Cinefolk.Components.Common.IconButton();
+            this.movieUserControl3 = new Cinefolk.Components.Movie.MovieUserControl();
+            this.movieUserControl1 = new Cinefolk.Components.Movie.MovieUserControl();
+            this.movieUserControl2 = new Cinefolk.Components.Movie.MovieUserControl();
+            this.movieUserControl4 = new Cinefolk.Components.Movie.MovieUserControl();
             this.SuspendLayout();
             // 
             // searchTextBox
@@ -126,7 +130,7 @@
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton4.Image = ((System.Drawing.Image)(resources.GetObject("iconButton4.Image")));
-            this.iconButton4.Location = new System.Drawing.Point(414, 139);
+            this.iconButton4.Location = new System.Drawing.Point(414, 925);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(34, 34);
             this.iconButton4.TabIndex = 3;
@@ -138,18 +142,54 @@
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton5.Image = ((System.Drawing.Image)(resources.GetObject("iconButton5.Image")));
-            this.iconButton5.Location = new System.Drawing.Point(458, 139);
+            this.iconButton5.Location = new System.Drawing.Point(458, 925);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(34, 34);
             this.iconButton5.TabIndex = 3;
             this.iconButton5.UseVisualStyleBackColor = false;
+            // 
+            // movieUserControl3
+            // 
+            this.movieUserControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.movieUserControl3.Location = new System.Drawing.Point(105, 112);
+            this.movieUserControl3.Name = "movieUserControl3";
+            this.movieUserControl3.Size = new System.Drawing.Size(696, 180);
+            this.movieUserControl3.TabIndex = 6;
+            // 
+            // movieUserControl1
+            // 
+            this.movieUserControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.movieUserControl1.Location = new System.Drawing.Point(105, 314);
+            this.movieUserControl1.Name = "movieUserControl1";
+            this.movieUserControl1.Size = new System.Drawing.Size(696, 180);
+            this.movieUserControl1.TabIndex = 6;
+            // 
+            // movieUserControl2
+            // 
+            this.movieUserControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.movieUserControl2.Location = new System.Drawing.Point(105, 518);
+            this.movieUserControl2.Name = "movieUserControl2";
+            this.movieUserControl2.Size = new System.Drawing.Size(696, 180);
+            this.movieUserControl2.TabIndex = 6;
+            // 
+            // movieUserControl4
+            // 
+            this.movieUserControl4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.movieUserControl4.Location = new System.Drawing.Point(105, 723);
+            this.movieUserControl4.Name = "movieUserControl4";
+            this.movieUserControl4.Size = new System.Drawing.Size(696, 180);
+            this.movieUserControl4.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(947, 450);
+            this.ClientSize = new System.Drawing.Size(947, 983);
+            this.Controls.Add(this.movieUserControl4);
+            this.Controls.Add(this.movieUserControl2);
+            this.Controls.Add(this.movieUserControl1);
+            this.Controls.Add(this.movieUserControl3);
             this.Controls.Add(this.roundedButton2);
             this.Controls.Add(this.roundedButton1);
             this.Controls.Add(this.iconButton5);
@@ -176,6 +216,10 @@
         private Components.Common.IconButton iconButton2;
         private Components.Common.IconButton iconButton4;
         private Components.Common.IconButton iconButton5;
+        private Components.Movie.MovieUserControl movieUserControl3;
+        private Components.Movie.MovieUserControl movieUserControl1;
+        private Components.Movie.MovieUserControl movieUserControl2;
+        private Components.Movie.MovieUserControl movieUserControl4;
     }
 }
 

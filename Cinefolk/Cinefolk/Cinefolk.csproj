@@ -52,8 +52,17 @@
     <Compile Include="Components\Common\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\Common\RoundedLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Components\Common\RoundedTextBox.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Movie\MovieUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Movie\MovieUserControl.Designer.cs">
+      <DependentUpon>MovieUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\YearTextBox.cs">
       <SubType>Component</SubType>
@@ -66,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\Movie\MovieUserControl.resx">
+      <DependentUpon>MovieUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,5 +116,6 @@
   <ItemGroup>
     <None Include="Resources\fdxvfdb.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
