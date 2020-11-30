@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cinefolk.Models
 {
-    public enum MovieType
+    enum SortType
     {
-        Movie,
-        Series
+        Rating,
+        Title
     }
 }

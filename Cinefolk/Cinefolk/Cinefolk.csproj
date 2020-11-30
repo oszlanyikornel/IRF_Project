@@ -55,6 +55,12 @@
     <Compile Include="Components\Common\RoundedLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\Common\RoundedNumInc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Common\RoundedNumInc.Designer.cs">
+      <DependentUpon>RoundedNumInc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Common\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -82,10 +88,14 @@
     </Compile>
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieType.cs" />
+    <Compile Include="Models\SortType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\InputParser.cs" />
     <Compile Include="Utilities\Validation.cs" />
+    <EmbeddedResource Include="Components\Common\RoundedNumInc.resx">
+      <DependentUpon>RoundedNumInc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </EmbeddedResource>

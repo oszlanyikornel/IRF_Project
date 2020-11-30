@@ -25,6 +25,10 @@ namespace Cinefolk
     {
         private int page = 1;
         private MovieType type = MovieType.Movie;
+        private int currentTotalResults = 0;
+        private string currentSearchVal = "";
+        private string currentYear = "";
+        private MovieType currentType = MovieType.Movie;
 
         public Form1()
         {
@@ -58,6 +62,10 @@ namespace Cinefolk
             ExportForm Form2 = new ExportForm();
             Form2.ShowDialog();
             // TODO Do export functions and design
+            // TODO check if there are movies and error msg if not
+            // TODO function inputs: validated inputs and current values
+            // TODO Create num control
+            // TODO on export click fetch modified data in loop with pages, and modify the list, then save it to csv
             
         }
         private void forwardIconBtn_Click(object sender, EventArgs e)
@@ -75,7 +83,11 @@ namespace Cinefolk
         }
         private void SetErrorMessage(string errorMsg)
         {
-            Console.WriteLine(errorMsg);
+            //Console.WriteLine(errorMsg);
+            currentTotalResults = 0;
+            currentSearchVal = "";
+            currentYear = "";
+
             moviesFlowLayoutPanel.Controls.Clear();
             var errorMsgTxtBox = new Label();
             errorMsgTxtBox.Text = errorMsg;
@@ -120,6 +132,9 @@ namespace Cinefolk
         private void GetMovies()
         {
             moviesFlowLayoutPanel.Controls.Clear();
+            currentTotalResults = 0;
+            currentSearchVal = "";
+            currentYear = "";
 
             if (!ValidateInputs())
             {
@@ -136,6 +151,11 @@ namespace Cinefolk
             {
                 return;
             }
+
+            currentTotalResults = movies[0].TotalResults;
+            currentSearchVal = searchTextBox.GetTextVal();
+            currentType = type;
+            currentYear = year;
 
             SetMovies(movies);
         }
