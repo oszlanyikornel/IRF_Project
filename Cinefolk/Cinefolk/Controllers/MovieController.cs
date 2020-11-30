@@ -88,9 +88,9 @@ namespace Cinefolk.Controllers
         {
             double halfPage = page / 2.0;
             int newPage = (int)Math.Ceiling(halfPage);
-            Console.WriteLine(page);
-            Console.WriteLine(halfPage);
-            Console.WriteLine(newPage);
+            //Console.WriteLine(page);
+            //Console.WriteLine(halfPage);
+            //Console.WriteLine(newPage);
             string url = String.Format("http://www.omdbapi.com/?apikey=abab632e&s={0}&r=xml&type={1}&page={2}",
                 searchVal, type.ToLower(), newPage.ToString());
             if (year != "")
@@ -98,7 +98,7 @@ namespace Cinefolk.Controllers
                 url = url + "&y=" + year;
             }
             Uri apiUri = new Uri(url);
-            Console.WriteLine(apiUri);
+            //Console.WriteLine(apiUri);
             return apiUri;
         }
         private static Uri createDetailsUri(string imdbId)
@@ -106,7 +106,7 @@ namespace Cinefolk.Controllers
             string url = String.Format("http://www.omdbapi.com/?apikey=abab632e&i={0}&r=xml",
                 imdbId);
             Uri apiUri = new Uri(url);
-            Console.WriteLine(apiUri);
+            //Console.WriteLine(apiUri);
             return apiUri;
         }
         private static Movie getMovieDetails(string imdbId)

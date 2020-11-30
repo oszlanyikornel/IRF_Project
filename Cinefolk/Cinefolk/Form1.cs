@@ -41,7 +41,7 @@ namespace Cinefolk
             type = MovieType.Movie;
             this.seriesSwitchBtn.BackColor = Color.FromArgb(33, 41, 60);
             this.movieSwitchBtn.BackColor = Color.FromArgb(45, 56, 82);
-            Console.WriteLine(type);
+            //Console.WriteLine(type);
         }
 
         private void seriesSwitchBtn_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Cinefolk
             type = MovieType.Series;
             this.seriesSwitchBtn.BackColor = Color.FromArgb(45, 56, 82);
             this.movieSwitchBtn.BackColor = Color.FromArgb(33, 41, 60);
-            Console.WriteLine(type);
+            //Console.WriteLine(type);
         }
 
         private void searchIconBtn_Click(object sender, EventArgs e)

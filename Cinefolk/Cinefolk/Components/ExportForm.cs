@@ -61,7 +61,7 @@ namespace Cinefolk.Components
             sort = SortType.Rating;
             titleSwitchBtn.BackColor = Color.FromArgb(28, 34, 48);
             ratingSwitchBtn.BackColor = Color.FromArgb(33, 41, 60);
-            Console.WriteLine(sort);
+            //Console.WriteLine(sort);
         }
 
         private void titleSwitchBtn_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace Cinefolk.Components
             sort = SortType.Title;
             titleSwitchBtn.BackColor = Color.FromArgb(33, 41, 60);
             ratingSwitchBtn.BackColor = Color.FromArgb(28, 34, 48);
-            Console.WriteLine(sort);
+            //Console.WriteLine(sort);
         }
 
         private void exportBtn_Click(object sender, EventArgs e)
@@ -125,38 +125,46 @@ namespace Cinefolk.Components
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                StreamWriter sw = new StreamWriter(saveFileDialog1.FileName, false);
-
-                List<string> headers = new List<string>();
-
-                headers.Add("Title");
-                headers.Add("Director");
-                headers.Add("Actors");
-                headers.Add("Genres");
-                headers.Add("Plot");
-                headers.Add("Rating");
-                headers.Add("Year");
-                headers.Add("Poster link");
-
-                sw.WriteLine(string.Join(";", headers.ToArray()));
-
-                foreach (Models.Movie movie in movies)
+                try
                 {
-                    List<string> data = new List<string>();
+                    StreamWriter sw = new StreamWriter(saveFileDialog1.FileName, false);
 
-                    data.Add(movie.Title);
-                    data.Add(movie.Director);
-                    data.Add(movie.Stars);
-                    data.Add(movie.Genres);
-                    data.Add(movie.Plot.Replace(";", ","));
-                    data.Add(movie.Rating);
-                    data.Add(movie.Year);
-                    data.Add(movie.ImageUrl);
+                    List<string> headers = new List<string>();
 
-                    sw.WriteLine(string.Join(";", data.ToArray()));
+                    headers.Add("Title");
+                    headers.Add("Director");
+                    headers.Add("Actors");
+                    headers.Add("Genres");
+                    headers.Add("Plot");
+                    headers.Add("Rating");
+                    headers.Add("Year");
+                    headers.Add("Poster link");
+
+                    sw.WriteLine(string.Join(";", headers.ToArray()));
+
+                    foreach (Models.Movie movie in movies)
+                    {
+                        List<string> data = new List<string>();
+
+                        data.Add(movie.Title);
+                        data.Add(movie.Director);
+                        data.Add(movie.Stars);
+                        data.Add(movie.Genres);
+                        data.Add(movie.Plot.Replace(";", ","));
+                        data.Add(movie.Rating);
+                        data.Add(movie.Year);
+                        data.Add(movie.ImageUrl);
+
+                        sw.WriteLine(string.Join(";", data.ToArray()));
+                    }
+
+                    sw.Close();
                 }
-
-                sw.Close();
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
             }
 
         }
