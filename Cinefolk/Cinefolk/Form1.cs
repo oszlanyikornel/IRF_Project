@@ -59,7 +59,7 @@ namespace Cinefolk
         }
         private void exportIconBtn_Click(object sender, EventArgs e)
         {
-            if (currentSearchVal == "" || currentYear == "" || currentTotalResults == 0)
+            if (currentSearchVal == "" || currentTotalResults == 0)
             {
                 return;
             }

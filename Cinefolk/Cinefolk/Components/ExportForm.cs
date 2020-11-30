@@ -76,12 +76,12 @@ namespace Cinefolk.Components
         {
             List<Models.Movie> movies = FetchMovies(totalResults, type, searchVal, year, pageNumInc.currentNumber);
 
-            // modify list (return with list)
-            // sort, minRating param
-            // TODO modify the list
+            List<Models.Movie> filteredMovies = FilterMovies(movies);
+
+            List<Models.Movie> sortedMovies = SortMovies(filteredMovies, sort);
 
             // export as csv (void)
-            ExportCSV(movies);
+            ExportCSV(sortedMovies);
         }
 
         private List<Models.Movie> FetchMovies(int totalResults, MovieType type, string searchVal, string year, int pageNum)
@@ -159,6 +159,40 @@ namespace Cinefolk.Components
                 sw.Close();
             }
 
+        }
+
+        private List<Models.Movie> FilterMovies(List<Models.Movie> movies)
+        {
+            for (int i = movies.Count - 1; i >= 0; i--) 
+            {
+               bool isNumeric = int.TryParse(movies[i].Rating, out int parsedRating);
+               if (isNumeric && parsedRating < ratingNumInc.currentNumber)
+               {
+                   movies.RemoveAt(i);
+               }
+            }
+
+            return movies;
+        }
+
+        private List<Models.Movie> SortMovies(List<Models.Movie> movies, SortType sort)
+        {
+            List<Models.Movie> sortedMovies;
+
+            if (sort == SortType.Title)
+            {
+                sortedMovies = movies.OrderBy(m => m.Title).ToList();
+            } 
+            else if (sort == SortType.Rating)
+            {
+                sortedMovies = movies.OrderBy(m => m.Rating).ToList();
+            }
+            else
+            {
+                sortedMovies = movies;
+            }
+
+            return sortedMovies;
         }
     }
 }
