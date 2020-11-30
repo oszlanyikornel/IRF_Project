@@ -59,14 +59,14 @@ namespace Cinefolk
         }
         private void exportIconBtn_Click(object sender, EventArgs e)
         {
-            ExportForm Form2 = new ExportForm();
+            if (currentSearchVal == "" || currentYear == "" || currentTotalResults == 0)
+            {
+                return;
+            }
+
+            ExportForm Form2 = new ExportForm(currentTotalResults, currentType, currentSearchVal, currentYear);
             Form2.ShowDialog();
-            // TODO Do export functions and design
-            // TODO check if there are movies and error msg if not
-            // TODO function inputs: validated inputs and current values
-            // TODO Create num control
-            // TODO on export click fetch modified data in loop with pages, and modify the list, then save it to csv
-            
+
         }
         private void forwardIconBtn_Click(object sender, EventArgs e)
         {
