@@ -7,28 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cinefolk.Models;
 
 namespace Cinefolk.Components.Movie
 {
     public partial class MovieUserControl : UserControl
     {
-        public MovieUserControl()
+        public MovieUserControl(Models.Movie movie)
         {
             InitializeComponent();
-            // TODO set the input data to controls
-            // TODO image fallback
+            setData(movie);
+            setYearLabelVal(movie.Year);
         }
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
-            int nLeftRect, // X-coordinate of upper-left corner or padding at start
-            int nTopRect, // Y-coordinate of upper-left corner or padding at the top of the textbox
-            int nRightRect, // X-coordinate of lower-right corner or Width of the object
-            int nBottomRect, // Y-coordinate of lower-right corner or Height of the object
-            //RADIUS, how round do you want it to be?
-            int nheightRect, //height of ellipse 
-            int nweightRect //width of ellipse
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nheightRect,
+            int nweightRect
         );
 
         protected override void OnCreateControl()
@@ -38,6 +38,48 @@ namespace Cinefolk.Components.Movie
             this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 15,
                 15));
 
+        }
+
+        public void setYearLabelVal(string year)
+        {
+            yearLabel.Text = year;
+            yearLabel.Location = new Point(titleLabel.Location.X + titleLabel.Width + 10, yearLabel.Location.Y);
+        }
+
+        public void setData(Models.Movie movie)
+        {
+            titleLabel.Text = movie.Title;
+            ratingIcon.Text = movie.Rating.ToString();
+            plotLabel.Text = movie.Plot;
+            directorLabel.Text = movie.Director;
+            starsLabel.Text = movie.Stars;
+            posterPictureBox.ImageLocation = movie.ImageUrl;
+
+            string[] genres = movie.Genres.Split(',');
+
+            switch (genres.Length)
+            {
+                case 0:
+                    break;
+                case 1:
+                    genreLabel1.Visible = true;
+                    genreLabel1.Text = genres[0];
+                    break;
+                case 2:
+                    genreLabel1.Visible = true;
+                    genreLabel1.Text = genres[0];
+                    genreLabel2.Visible = true;
+                    genreLabel2.Text = genres[1];
+                    break;
+                default:
+                    genreLabel1.Visible = true;
+                    genreLabel1.Text = genres[0];
+                    genreLabel2.Visible = true;
+                    genreLabel2.Text = genres[1];
+                    genreLabel3.Visible = true;
+                    genreLabel3.Text = genres[2];
+                    break;
+            }
         }
     }
 }
