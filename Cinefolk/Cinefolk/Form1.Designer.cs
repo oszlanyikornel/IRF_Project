@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.moviesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.seriesSwitchBtn = new Cinefolk.Components.Common.RoundedButton();
@@ -54,7 +53,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImage = global::Cinefolk.Properties.Resources.Icons_X;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(914, 16);
@@ -102,7 +101,7 @@
             this.forwardIconBtn.Enabled = false;
             this.forwardIconBtn.FlatAppearance.BorderSize = 0;
             this.forwardIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.forwardIconBtn.Image = ((System.Drawing.Image)(resources.GetObject("forwardIconBtn.Image")));
+            this.forwardIconBtn.Image = global::Cinefolk.Properties.Resources.Icons_ForwardIcon;
             this.forwardIconBtn.Location = new System.Drawing.Point(458, 967);
             this.forwardIconBtn.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.forwardIconBtn.Name = "forwardIconBtn";
@@ -118,7 +117,7 @@
             this.backwardsIconBtn.Enabled = false;
             this.backwardsIconBtn.FlatAppearance.BorderSize = 0;
             this.backwardsIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backwardsIconBtn.Image = ((System.Drawing.Image)(resources.GetObject("backwardsIconBtn.Image")));
+            this.backwardsIconBtn.Image = global::Cinefolk.Properties.Resources.Icons_BackIcon;
             this.backwardsIconBtn.Location = new System.Drawing.Point(414, 967);
             this.backwardsIconBtn.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.backwardsIconBtn.Name = "backwardsIconBtn";
@@ -133,7 +132,7 @@
             this.exportIconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
             this.exportIconBtn.FlatAppearance.BorderSize = 0;
             this.exportIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportIconBtn.Image = ((System.Drawing.Image)(resources.GetObject("exportIconBtn.Image")));
+            this.exportIconBtn.Image = global::Cinefolk.Properties.Resources.file;
             this.exportIconBtn.Location = new System.Drawing.Point(767, 23);
             this.exportIconBtn.Name = "exportIconBtn";
             this.exportIconBtn.Size = new System.Drawing.Size(34, 34);
@@ -147,7 +146,7 @@
             this.searchIconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
             this.searchIconBtn.FlatAppearance.BorderSize = 0;
             this.searchIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchIconBtn.Image = ((System.Drawing.Image)(resources.GetObject("searchIconBtn.Image")));
+            this.searchIconBtn.Image = global::Cinefolk.Properties.Resources.Icons_Search;
             this.searchIconBtn.Location = new System.Drawing.Point(425, 23);
             this.searchIconBtn.Name = "searchIconBtn";
             this.searchIconBtn.Size = new System.Drawing.Size(34, 34);

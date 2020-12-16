@@ -140,6 +140,26 @@
   <ItemGroup>
     <None Include="Resources\fdxvfdb.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Icons_Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_BackIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_ForwardIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_DownIcon_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_UpIcon_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_X.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

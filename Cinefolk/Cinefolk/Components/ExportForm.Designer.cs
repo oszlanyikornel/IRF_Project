@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ratingSwitchBtn = new Cinefolk.Components.Common.RoundedButton();
             this.titleSwitchBtn = new Cinefolk.Components.Common.RoundedButton();
@@ -43,7 +42,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImage = global::Cinefolk.Properties.Resources.Icons_X;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(324, 21);

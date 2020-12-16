@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoundedNumInc));
             this.numIconBtn = new Cinefolk.Components.Common.IconButton();
             this.upIconBtn = new Cinefolk.Components.Common.IconButton();
             this.downButton1 = new Cinefolk.Components.Common.IconButton();
@@ -57,7 +56,7 @@
             this.upIconBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
             this.upIconBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
             this.upIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.upIconBtn.Image = ((System.Drawing.Image)(resources.GetObject("upIconBtn.Image")));
+            this.upIconBtn.Image = global::Cinefolk.Properties.Resources.Icons_UpIcon_01;
             this.upIconBtn.Location = new System.Drawing.Point(40, 2);
             this.upIconBtn.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.upIconBtn.Name = "upIconBtn";
@@ -73,7 +72,7 @@
             this.downButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
             this.downButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
             this.downButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.downButton1.Image = ((System.Drawing.Image)(resources.GetObject("downButton1.Image")));
+            this.downButton1.Image = global::Cinefolk.Properties.Resources.Icons_DownIcon_03;
             this.downButton1.Location = new System.Drawing.Point(40, 20);
             this.downButton1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.downButton1.Name = "downButton1";
