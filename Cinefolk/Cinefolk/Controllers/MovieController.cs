@@ -16,73 +16,80 @@ namespace Cinefolk.Controllers
     {
         public static List<Movie> SearchMovies(string searchVal, string year, string type, int page)
         {
-
             Uri apiUri = createSearchUri(searchVal, year, type, page);
 
-            WebRequest request = WebRequest.Create(apiUri);
-            WebResponse response = request.GetResponse();
-
-            string res;
-
-            using (Stream dataStream = response.GetResponseStream())
+            try
             {
-                StreamReader reader = new StreamReader(dataStream);
-                res = reader.ReadToEnd();
+                WebRequest request = WebRequest.Create(apiUri);
+                WebResponse response = request.GetResponse();
+
+                string res;
+
+                using (Stream dataStream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(dataStream);
+                    res = reader.ReadToEnd();
+                }
+                response.Close();
+
+                List<Movie> movies = new List<Movie>();
+
+                var xml = new XmlDocument();
+                xml.LoadXml(res);
+                int counter = 0;
+
+                foreach (XmlElement element in xml.DocumentElement)
+                {
+                    string imdbId = element.GetAttribute("imdbID").ToString();
+                    if (page % 2 == 0)
+                    {
+                        if (!(counter < 4))
+                        {
+                            Movie movie = getMovieDetails(imdbId);
+
+                            int parsedTotalResaults;
+                            bool isNumeric = int.TryParse(xml.DocumentElement.GetAttribute("totalResults"), out parsedTotalResaults);
+                            if (isNumeric)
+                            {
+                                movie.TotalResults = parsedTotalResaults;
+                            }
+                            else
+                            {
+                                movie.TotalResults = 0;
+                            }
+                            movies.Add(movie);
+                        }
+                    }
+                    else
+                    {
+                        if (!(counter > 4))
+                        {
+                            Movie movie = getMovieDetails(imdbId);
+
+                            int parsedTotalResaults;
+                            bool isNumeric = int.TryParse(xml.DocumentElement.GetAttribute("totalResults"), out parsedTotalResaults);
+                            if (isNumeric)
+                            {
+                                movie.TotalResults = parsedTotalResaults;
+                            }
+                            else
+                            {
+                                movie.TotalResults = 0;
+                            }
+                            movies.Add(movie);
+                        }
+                    }
+
+                    counter += 1;
+                }
+
+                return movies;
             }
-            response.Close();
-
-            List<Movie> movies = new List<Movie>();
-
-            var xml = new XmlDocument();
-            xml.LoadXml(res);
-            int counter = 0;
-
-            foreach (XmlElement element in xml.DocumentElement)
+            catch (Exception e)
             {
-                string imdbId = element.GetAttribute("imdbID").ToString();
-                if (page % 2 == 0)
-                {
-                    if (!(counter < 4))
-                    {
-                        Movie movie = getMovieDetails(imdbId);
-
-                        int parsedTotalResaults;
-                        bool isNumeric = int.TryParse(xml.DocumentElement.GetAttribute("totalResults"), out parsedTotalResaults);
-                        if (isNumeric)
-                        {
-                            movie.TotalResults = parsedTotalResaults;
-                        }
-                        else
-                        {
-                            movie.TotalResults = 0;
-                        }
-                        movies.Add(movie);
-                    }
-                }
-                else
-                {
-                    if (!(counter > 4))
-                    {
-                        Movie movie = getMovieDetails(imdbId);
-
-                        int parsedTotalResaults;
-                        bool isNumeric = int.TryParse(xml.DocumentElement.GetAttribute("totalResults"), out parsedTotalResaults);
-                        if (isNumeric)
-                        {
-                            movie.TotalResults = parsedTotalResaults;
-                        }
-                        else
-                        {
-                            movie.TotalResults = 0;
-                        }
-                        movies.Add(movie);
-                    }
-                }
-
-                counter += 1;
+                Console.WriteLine(e);
+                return new List<Movie>();
             }
-
-            return movies;
         }
         private static Uri createSearchUri(string searchVal, string year, string type, int page)
         {

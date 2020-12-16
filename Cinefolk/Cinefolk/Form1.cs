@@ -43,7 +43,6 @@ namespace Cinefolk
             this.movieSwitchBtn.BackColor = Color.FromArgb(45, 56, 82);
             //Console.WriteLine(type);
         }
-
         private void seriesSwitchBtn_Click(object sender, EventArgs e)
         {
             type = MovieType.Series;
@@ -51,7 +50,6 @@ namespace Cinefolk
             this.movieSwitchBtn.BackColor = Color.FromArgb(33, 41, 60);
             //Console.WriteLine(type);
         }
-
         private void searchIconBtn_Click(object sender, EventArgs e)
         {
             page = 1;
@@ -159,7 +157,6 @@ namespace Cinefolk
 
             SetMovies(movies);
         }
-
         private void SetPaginationButtonSate(List<Movie> movies)
         {
             if (movies.Count > 0 && movies[0].TotalResults != 0)
@@ -199,17 +196,26 @@ namespace Cinefolk
                 }
             }
         }
-
         private bool IsEmpty(List<Movie> movies)
         {
             if (movies.Count < 2)
             {
                 bool empty = false;
-                if (movies[0].Title == "")
+                if (movies.Count == 0)
                 {
                     SetErrorMessage("No results");
                     empty = true;
+                    return empty;
                 }
+                else
+                {
+                    if (movies[0].Title == "")
+                    {
+                        SetErrorMessage("No results");
+                        empty = true;
+                    }
+                }
+                
                 return empty;
             }
             else

@@ -31,26 +31,6 @@ namespace Cinefolk.Components
             this.searchVal = searchVal;
         }
 
-        [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nheightRect,
-            int nweightRect
-        );
-
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-
-            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 15,
-                15));
-
-        }
-
         private void panel1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -201,6 +181,25 @@ namespace Cinefolk.Components
             }
 
             return sortedMovies;
+        }
+
+        [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nheightRect,
+            int nweightRect
+        );
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+
+            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 15,
+                15));
+
         }
     }
 }
